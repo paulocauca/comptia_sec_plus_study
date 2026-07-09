@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA Security+ SY0-701 - Study Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate-950: #020617;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-700: #334155;
+            --slate-400: #94a3b8;
+            --rose-500: #f43f5e;
+            --rose-400: #fb7185;
+            --cyan-400: #22d3ee;
+            --emerald-400: #34d399;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--slate-950);
+            color: #f8fafc;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .back-nav {
+            margin-bottom: 25px;
+        }
+        
+        .btn-back {
+            color: var(--slate-400);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .btn-back:hover {
+            color: white;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .desc {
+            color: var(--slate-400);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        
+        /* Week Cards */
+        .week-card {
+            background-color: var(--slate-900);
+            border: 1px solid var(--slate-800);
+            border-radius: 12px;
+            padding: 35px;
+            margin-bottom: 40px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .week-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 1px solid var(--slate-800);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .week-header h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .week-header h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--slate-400);
+            margin-top: 4px;
+        }
+        
+        .week-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--rose-400);
+            background-color: rgba(244, 63, 94, 0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+        }
+        
+        .week-meta {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .meta-section strong {
+            display: block;
+            color: var(--slate-400);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .badges-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: var(--slate-800);
+            color: #e2e8f0;
+            border: 1px solid var(--slate-700);
+        }
+        
+        .meta-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .meta-section li {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        .meta-section li::before {
+            content: '•';
+            color: var(--rose-500);
+            position: absolute;
+            left: 0;
+        }
+        
+        .objective-box {
+            background-color: rgba(34, 211, 238, 0.05);
+            border: 1px solid rgba(34, 211, 238, 0.15);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+        }
+        
+        .objective-box strong {
+            color: var(--cyan-400);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-section h4, .glossary-section h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+            border-bottom: 2px solid var(--slate-800);
+            padding-bottom: 6px;
+            display: inline-block;
+        }
+        
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 35px;
+        }
+        
+        .day-item {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            padding: 10px 15px;
+            background-color: rgba(255,255,255,0.02);
+            border-radius: 6px;
+            border-left: 3px solid var(--rose-500);
+        }
+        
+        .day-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--rose-400);
+            width: 90px;
+            flex-shrink: 0;
+            text-transform: uppercase;
+        }
+        
+        .day-task {
+            font-size: 0.95rem;
+            color: #e2e8f0;
+        }
+        
+        /* Glossary Table */
+        .glossary-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+        
+        .glossary-table th {
+            background-color: var(--slate-800);
+            color: white;
+            text-align: left;
+            padding: 12px;
+            font-weight: 600;
+            border: 1px solid var(--slate-700);
+        }
+        
+        .glossary-table td {
+            padding: 12px;
+            border: 1px solid var(--slate-800);
+            color: #cbd5e1;
+        }
+        
+        .glossary-table tr:nth-child(even) {
+            background-color: rgba(255,255,255,0.01);
+        }
+        
+        .glossary-table strong {
+            color: var(--rose-400);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back-nav">
+            <a href="index.html" class="btn-back">← Voltar ao Painel Geral</a>
+        </div>
+        
+        <h1>Weekly Study Plan</h1>
+        <p class="desc">A rigorous, step-by-step 8-week guide mapping all domains, core chapters, and essential bilingual glossaries.</p>
+        
+        
+        <div class="week-card" id="week-1">
+            <div class="week-header">
+                <div>
+                    <h2>Week 1: General Security Concepts & Core Basics</h2>
+                    <h3>Semana 1: Conceitos Gerais de Segurança e Fundamentos</h3>
+                </div>
+                <span class="week-number">W1</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 1.0: General Security Concepts (12%)</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 1: Mastering Security Basics</li><li>Chapter 11: Implementing Policies to Mitigate Risks (Change Management & Data Protection)</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Understand the core goals of information security (CIA triad), differentiate between security control categories and types, and comprehend the importance of change management and data classification.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 1: Mastering Security Basics (Security goals: CIA, non-repudiation, AAA).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study Chapter 1 Security Controls (Categories: Technical, Managerial, Operational, Physical; and Types: Preventive, Deterrent, Detective, Corrective, Compensating, Directive).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Read Chapter 11: Change Management & Data Protection (Data types, classification, sanitization, change approval, backout plan).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Active recall: Review Week 1 Flashcards and create your own mind map of control types in Portuguese.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Practice Quiz: Solve Chapter 1 & Chapter 11 end-of-chapter questions (English) and study the Portuguese explanations.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Consolidate the bilingual glossary of key terms. Study the 'Golden Rules' for Change Management.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Confidentiality</strong></td>
+                <td>Confidencialidade</td>
+                <td>Ensures that unauthorized entities cannot access sensitive data (encryption, access controls).</td>
+            </tr>
+            <tr>
+                <td><strong>Integrity</strong></td>
+                <td>Integridade</td>
+                <td>Ensures that data has not been modified, tampered with, or corrupted (hashing, digital signatures).</td>
+            </tr>
+            <tr>
+                <td><strong>Availability</strong></td>
+                <td>Disponibilidade</td>
+                <td>Ensures systems and data are accessible when needed by authorized users (redundancy, backups).</td>
+            </tr>
+            <tr>
+                <td><strong>Technical Control</strong></td>
+                <td>Controle Técnico</td>
+                <td>Controls implemented using technology (firewalls, encryption, antivirus).</td>
+            </tr>
+            <tr>
+                <td><strong>Managerial Control</strong></td>
+                <td>Controle Administrativo/Gerencial</td>
+                <td>Controls using administrative methods, policies, risk assessments, and training.</td>
+            </tr>
+            <tr>
+                <td><strong>Operational Control</strong></td>
+                <td>Controle Operacional</td>
+                <td>Controls executed by people in daily routines (media restoration, incident response).</td>
+            </tr>
+            <tr>
+                <td><strong>Physical Control</strong></td>
+                <td>Controle Físico</td>
+                <td>Controls that physically block access (fences, locks, security guards, barricades).</td>
+            </tr>
+            <tr>
+                <td><strong>Change Management</strong></td>
+                <td>Gestão de Mudanças</td>
+                <td>Structured process to request, evaluate, approve, and implement system modifications safely.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-2">
+            <div class="week-header">
+                <div>
+                    <h2>Week 2: Identity and Access Management (IAM)</h2>
+                    <h3>Semana 2: Gestão de Identidade e Acesso (IAM)</h3>
+                </div>
+                <span class="week-number">W2</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 1.0: General Security Concepts</span><span class='badge'>Domain 2.0: Threats, Vulnerabilities, and Mitigations</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 2: Understanding Identity and Access Management</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Master authentication factors (MFA, passwordless), account management policies, privileged access management (PAM), single sign-on (SSO), and access control authorization models.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 2: Identification, AAA, and Authentication Factors (Something you know, have, are, somewhere you are, something you do).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study MFA, Passwordless authentication, and Authentication Log Files/Indicators.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study Account Management Policies (credential policies, PAM, deprovisioning, role-based vs group-based, shared account prohibition).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Study Single Sign-On (SSO), Federation (SAML, OAuth) and directory services (LDAP).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Study Authorization Models: Role-Based (RBAC), Rule-Based, Discretionary (DAC), Mandatory (MAC - labels/lattice), and Attribute-Based (ABAC).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Practice Week 2 Flashcards & Chapter 2 quiz questions. Focus on distinguishing SAML (authentication) from OAuth (authorization).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Multifactor Authentication (MFA)</strong></td>
+                <td>Autenticação de Múltiplos Fatores</td>
+                <td>Requiring two or more distinct factors (e.g., password + hardware token).</td>
+            </tr>
+            <tr>
+                <td><strong>Privileged Access Management (PAM)</strong></td>
+                <td>Gestão de Acessos Privilegiados</td>
+                <td>Securing and monitoring highly elevated administrative credentials.</td>
+            </tr>
+            <tr>
+                <td><strong>Federation / SSO</strong></td>
+                <td>Federação / Single Sign-On</td>
+                <td>Allows users to log in once and access resources across multiple independent systems/domains.</td>
+            </tr>
+            <tr>
+                <td><strong>SAML</strong></td>
+                <td>Security Assertion Markup Language</td>
+                <td>XML-based open standard for exchanging authentication and authorization data.</td>
+            </tr>
+            <tr>
+                <td><strong>OAuth</strong></td>
+                <td>OAuth (Open Authorization)</td>
+                <td>Token-based authorization protocol used for secure API authorization (delegated access).</td>
+            </tr>
+            <tr>
+                <td><strong>Discretionary Access Control (DAC)</strong></td>
+                <td>Controle de Acesso Discricionário</td>
+                <td>Data owners determine who has access (used in standard filesystems with NTFS/ext4 permissions).</td>
+            </tr>
+            <tr>
+                <td><strong>Mandatory Access Control (MAC)</strong></td>
+                <td>Controle de Acesso Mandatório</td>
+                <td>Access is based on security labels and classification levels (military grade, lattice model).</td>
+            </tr>
+            <tr>
+                <td><strong>Attribute-Based Access Control (ABAC)</strong></td>
+                <td>Controle de Acesso Baseado em Atributos</td>
+                <td>Flexible access control based on user, resource, and environmental attributes (time, location).</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-3">
+            <div class="week-header">
+                <div>
+                    <h2>Week 3: Network Infrastructure, Protocols and Security</h2>
+                    <h3>Semana 3: Infraestrutura, Protocolos e Segurança de Rede</h3>
+                </div>
+                <span class="week-number">W3</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 3.0: Security Architecture</span><span class='badge'>Domain 4.0: Security Operations</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 3: Exploring Network Technologies and Tools</li><li>Chapter 4: Securing Your Network</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Analyze secure network protocols, design, and appliances. Master firewalls, switches, routers, IDS/IPS, honeypots, wireless security (WPA3), VPNs, and network access control (NAC).</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 3: OSI Model, Secure network protocols mapping (HTTPS, SSH, SFTP, DNSSEC, SNMPv3, SRTP).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study network infrastructure hardening (switches, routers, firewalls, screened subnets, jump servers).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study Zero Trust concepts (control plane vs. data plane, SASE, secure access service edge).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Read Chapter 4: IDS vs. IPS (signature vs. anomaly), honeypots, honeyfiles, honeytokens.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Study wireless security (WPA2/WPA3 Personal vs. Enterprise, 802.1x), VPN topologies (Full vs Split, Site-to-site, Always-On), and NAC (Agent vs Agentless).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Practice Week 3 Quizzes and Flashcards. Draw a secure network topology with a Screened Subnet and a Jump Server.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Screened Subnet (DMZ)</strong></td>
+                <td>Sub-rede Protegida / DMZ</td>
+                <td>Buffer zone between the untrusted internet and internal private network containing public-facing servers.</td>
+            </tr>
+            <tr>
+                <td><strong>Secure Access Service Edge (SASE)</strong></td>
+                <td>SASE</td>
+                <td>Cloud architecture merging software-defined wide area networking (SD-WAN) with comprehensive cloud security functions (CASB, FWaaS, ZTNA).</td>
+            </tr>
+            <tr>
+                <td><strong>Honeypot</strong></td>
+                <td>Honeypot (Pote de Mel)</td>
+                <td>Decoy system designed to attract and analyze attacker behavior in a controlled environment.</td>
+            </tr>
+            <tr>
+                <td><strong>WPA3</strong></td>
+                <td>WPA3</td>
+                <td>Latest wireless security protocol replacing WPA2, using SAE (Simultaneous Authentication of Equals) to protect against offline dictionary attacks.</td>
+            </tr>
+            <tr>
+                <td><strong>Split Tunnel</strong></td>
+                <td>Túnel Dividido</td>
+                <td>VPN configuration where only corporate-destined traffic goes through the encrypted tunnel; general internet traffic goes directly.</td>
+            </tr>
+            <tr>
+                <td><strong>Network Access Control (NAC)</strong></td>
+                <td>Controle de Acesso à Rede</td>
+                <td>Inspects host health (patches, antivirus, firewall status) before granting network access.</td>
+            </tr>
+            <tr>
+                <td><strong>SNMPv3</strong></td>
+                <td>SNMPv3</td>
+                <td>Secure network management protocol that provides encryption, authentication, and message integrity.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-4">
+            <div class="week-header">
+                <div>
+                    <h2>Week 4: Host, Cloud, Data Security & Cryptography</h2>
+                    <h3>Semana 4: Segurança de Hosts, Nuvem, Dados e Criptografia</h3>
+                </div>
+                <span class="week-number">W4</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 3.0: Security Architecture</span><span class='badge'>Domain 1.0: General Security Concepts</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 5: Securing Hosts and Data</li><li>Chapter 10: Understanding Cryptography and PKI</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Grasp virtualization, containerization, and cloud security frameworks (CASB, IaC, Shared Responsibility). Master cryptography concepts (symmetric, asymmetric, hashing, digital signatures, PKI, CA, CRL, OCSP).</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 5: Virtualization, Containerization, secure systems (endpoint security, CSP responsibility, IaC).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study mobile device security deployment models (BYOD, COPE) and MDM capabilities.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study specialized/embedded systems security (IoT, ICS/SCADA) and cryptographic data protection (TPM, HSM, secure enclaves, obfuscation).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Read Chapter 10: Cryptography foundations (hashing algorithms, salting, symmetric vs asymmetric encryption).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Study Public Key Infrastructure (PKI): Private/Public key pairs, CA, CRL, OCSP, CSR, certificate pinning, and formats.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Quiz on host security & cryptography. Practice 'Golden Rules' (e.g. Asymmetric encryption: Private key decrypts / signs; Public key encrypts / verifies).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Cloud Access Security Broker (CASB)</strong></td>
+                <td>CASB</td>
+                <td>On-premises or cloud-based security enforcement point placed between cloud service consumers and providers to enforce security policies.</td>
+            </tr>
+            <tr>
+                <td><strong>Infrastructure as Code (IaC)</strong></td>
+                <td>Infraestrutura como Código</td>
+                <td>Managing and provisioning infrastructure through machine-readable definition files, ensuring consistency and automation.</td>
+            </tr>
+            <tr>
+                <td><strong>Trusted Platform Module (TPM)</strong></td>
+                <td>TPM</td>
+                <td>Dedicated cryptographic hardware chip integrated on a computer motherboard to secure hardware assets via keys.</td>
+            </tr>
+            <tr>
+                <td><strong>Symmetric Encryption</strong></td>
+                <td>Criptografia Simétrica</td>
+                <td>Uses a single, shared secret key for both encryption and decryption (AES, DES).</td>
+            </tr>
+            <tr>
+                <td><strong>Asymmetric Encryption</strong></td>
+                <td>Criptografia Assimétrica</td>
+                <td>Uses a mathematically linked key pair: a public key (for encryption/verification) and a private key (for decryption/signing).</td>
+            </tr>
+            <tr>
+                <td><strong>Certificate Authority (CA)</strong></td>
+                <td>Autoridade Certificadora</td>
+                <td>Trusted third-party organization that issues digital certificates, verifying the identity of entities.</td>
+            </tr>
+            <tr>
+                <td><strong>Online Certificate Status Protocol (OCSP)</strong></td>
+                <td>Protocolo de Status de Certificado Online</td>
+                <td>Real-time query protocol used to check the revocation status of an X.509 digital certificate.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-5">
+            <div class="week-header">
+                <div>
+                    <h2>Week 5: Threats, Vulnerabilities and Common Attacks</h2>
+                    <h3>Semana 5: Ameaças, Vulnerabilidades e Ataques Comuns</h3>
+                </div>
+                <span class="week-number">W5</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 2.0: Threats, Vulnerabilities, and Mitigations (22%)</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 6: Comparing Threats, Vulnerabilities, and Common Attacks</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Examine threat actors, attributes, motivations, threat vectors, and attack surfaces. Differentiate between types of malware and master human-based social engineering attacks.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 6: Threat Actors (Nation-state, unskilled, hacktivist, insider, organized crime) and their motivations (espionage, financial gain).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study Threat Vectors (message, image, file, voice, removable device) and Attack Surfaces (vulnerable software, unsupported apps, shadow IT).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study Malware Types (Viruses, Worms, Logic Bombs, Trojans, RATs, Keyloggers, Spyware, Rootkits, Ransomware, Bloatware).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Study Malware Indicators (performance degradation, unauthorized modifications) and detection methods.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Study Social Engineering (Impersonation, Shoulder Surfing, Disinformation, Tailgating, Dumpster Diving, Watering Hole, Phishing, Vishing, Smishing).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Quiz on threats & malware. Memorize the difference between Virus (needs human interaction to execute) and Worm (self-replicating, spreads over network).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Shadow IT</strong></td>
+                <td>TI Invisível / Shadow IT</td>
+                <td>Information technology systems, devices, or software used within an organization without explicit IT department approval.</td>
+            </tr>
+            <tr>
+                <td><strong>Remote Access Trojan (RAT)</strong></td>
+                <td>Cavalo de Troia de Acesso Remoto</td>
+                <td>Malware that gives an attacker administrative control over a target system through a backdoor.</td>
+            </tr>
+            <tr>
+                <td><strong>Rootkit</strong></td>
+                <td>Rootkit</td>
+                <td>Malicious software designed to hide its existence and other malware from OS detection tools by operating at deep kernel levels.</td>
+            </tr>
+            <tr>
+                <td><strong>Watering Hole Attack</strong></td>
+                <td>Ataque de Watering Hole (Poço de Água)</td>
+                <td>Targeting a specific group of users by infecting a website they are known to visit frequently.</td>
+            </tr>
+            <tr>
+                <td><strong>Disinformation</strong></td>
+                <td>Desinformação</td>
+                <td>Deliberately false or distorted information spread systematically to deceive, mislead, or cause chaos (increasingly AI-driven).</td>
+            </tr>
+            <tr>
+                <td><strong>Insider Threat</strong></td>
+                <td>Ameaça Interna</td>
+                <td>A security threat originating from within the organization (employees, contractors) who have authorized access to systems.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-6">
+            <div class="week-header">
+                <div>
+                    <h2>Week 6: Advanced Attacks, Secure Coding & Risk Management</h2>
+                    <h3>Semana 6: Ataques Avançados, Código Seguro e Gestão de Riscos</h3>
+                </div>
+                <span class="week-number">W6</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 2.0: Threats, Vulnerabilities, and Mitigations</span><span class='badge'>Domain 4.0: Security Operations</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 7: Protecting Against Advanced Attacks</li><li>Chapter 8: Using Risk Management Tools</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Analyze advanced network attacks (DoS, DNS poisoning, on-path). Understand secure coding concepts, application vulnerabilities (buffer overflow, injections, XSS). Master risk management tools, framework standards (NIST, ISO), and audits.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 7: Network Attacks (SYN floods, On-path, SSL stripping, DNS poisoning, Domain hijacking, Replay).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study Secure Coding Concepts (input validation, error handling, race conditions, obfuscation, HTTP headers, secure cookies, code signing).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study Application Attacks (Memory leaks, Buffer overflows, SQL injection, DLL/LDAP/XML injection, Directory traversal, XSS, CSRF) and Automation/Scripting in Ops.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Read Chapter 8: Risk Management basics (vulnerability scanning, validation of remediation).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Study Network Traffic Tools (packet captures, tcpdump, tcpreplay, NetFlow) and Compliance Frameworks (ISO 27001, NIST CSF 2.0, NIST RMF, benchmarks).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Practice advanced attacks and frameworks quiz. Focus on how input validation prevents injections and how parameterization secures databases.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>On-Path Attack (MitM)</strong></td>
+                <td>Ataque On-Path / Homem no Meio</td>
+                <td>Attacker intercepts and silently alters communications between two trusting systems.</td>
+            </tr>
+            <tr>
+                <td><strong>DNS Poisoning</strong></td>
+                <td>Envenenamento de DNS</td>
+                <td>Corrupting Domain Name System cache to redirect users to malicious IP addresses (pharmings).</td>
+            </tr>
+            <tr>
+                <td><strong>Buffer Overflow</strong></td>
+                <td>Estouro de Buffer</td>
+                <td>Vulnerability occurring when a program writes more data to a memory buffer than it can hold, overwriting adjacent memory spaces.</td>
+            </tr>
+            <tr>
+                <td><strong>Cross-Site Scripting (XSS)</strong></td>
+                <td>XSS (Scripting Entre Sites)</td>
+                <td>Injecting malicious client-side scripts into web pages viewed by other users.</td>
+            </tr>
+            <tr>
+                <td><strong>NIST Cybersecurity Framework (CSF)</strong></td>
+                <td>NIST CSF</td>
+                <td>Flexible, risk-based cybersecurity standard structured into 6 functions: Govern, Identify, Protect, Detect, Respond, Recover (updated to CSF 2.0 in 2024).</td>
+            </tr>
+            <tr>
+                <td><strong>NetFlow</strong></td>
+                <td>NetFlow</td>
+                <td>Network protocol developed by Cisco for collecting IP traffic information and monitoring network flow data.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-7">
+            <div class="week-header">
+                <div>
+                    <h2>Week 7: Asset Protection, BCP, Policies & Incident Response</h2>
+                    <h3>Semana 7: Proteção de Ativos, BCP, Políticas e Resposta a Incidentes</h3>
+                </div>
+                <span class="week-number">W7</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>Domain 4.0: Security Operations</span><span class='badge'>Domain 5.0: Security Program Management and Oversight (20%)</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>Chapter 9: Implementing Controls to Protect Assets</li><li>Chapter 11: Implementing Policies (Incident Response & Threat Hunting)</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Differentiate physical controls, hardware asset management, and backup topologies. Master Business Continuity Plan (BCP) elements (BIA, RTO, RPO, disaster recovery exercises). Understand incident response (IR) plans, processes, and proactive threat hunting.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Read Chapter 9: Physical security controls (access badges, vestibules, perimeter security, sensors).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Study Asset Management and Backup Strategies (image backups, frequency, testing, geographic considerations).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Study Business Impact Analysis (BIA) concepts (RTO, RPO, MTBF, MTTR, continuity of operations).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Study Disaster Recovery Plan (DRP) testing methods (tabletop, simulations, parallel, fail over).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Read Chapter 11: Incident Response Plan (IRP), communication plan, Incident Response Process (Preparation, Detection, Containment, Eradication, Recovery, Lessons Learned), and Threat Hunting.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Weekly Review: Drill physical controls, BCP metrics, and the 6 steps of the Incident Response Process. Practice Week 7 Flashcards.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Rest day / Catch-up day.</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Recovery Time Objective (RTO)</strong></td>
+                <td>Objetivo de Tempo de Recuperação</td>
+                <td>The maximum acceptable amount of time a system can be down before causing critical impact.</td>
+            </tr>
+            <tr>
+                <td><strong>Recovery Point Objective (RPO)</strong></td>
+                <td>Objetivo de Ponto de Recuperação</td>
+                <td>The maximum targeted period in which data might be lost due to a major incident (determines backup frequency).</td>
+            </tr>
+            <tr>
+                <td><strong>Incident Response Process</strong></td>
+                <td>Processo de Resposta a Incidentes</td>
+                <td>Standard 6-step lifecycle: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned (PICERL).</td>
+            </tr>
+            <tr>
+                <td><strong>Threat Hunting</strong></td>
+                <td>Caça a Ameaças / Threat Hunting</td>
+                <td>Proactive process of searching across networks/endpoints to detect malicious activities that evaded existing security systems.</td>
+            </tr>
+            <tr>
+                <td><strong>Tabletop Exercise</strong></td>
+                <td>Exercício de Mesa / Tabletop</td>
+                <td>Discussion-based simulation where security team members talk through their roles in response to an emergency scenario.</td>
+            </tr>
+            <tr>
+                <td><strong>Access Control Vestibule (Man-trap)</strong></td>
+                <td>Eclusa de Segurança / Controle de Acesso</td>
+                <td>Physical security mechanism consisting of two interlocking doors, preventing tailgating/piggybacking.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="week-card" id="week-8">
+            <div class="week-header">
+                <div>
+                    <h2>Week 8: Final Consolidation & Full Mock Exams</h2>
+                    <h3>Semana 8: Consolidação Final e Simulados Completos</h3>
+                </div>
+                <span class="week-number">W8</span>
+            </div>
+            
+            <div class="week-meta">
+                <div class="meta-section">
+                    <strong>Focus Domains:</strong>
+                    <div class="badges-row"><span class='badge'>All Domains (1.0 - 5.0) Review</span></div>
+                </div>
+                <div class="meta-section">
+                    <strong>Chapters:</strong>
+                    <ul><li>All Chapters (1 - 11) Review</li></ul>
+                </div>
+            </div>
+            
+            <div class="objective-box">
+                <strong>Weekly Objective / Objetivo:</strong>
+                <p>Drill weaknesses using full practice exams. Solidify flashcards using Spaced Repetition, review mind maps, master exam time management, and build testing confidence.</p>
+            </div>
+            
+            <div class="schedule-section">
+                <h4>Daily Schedule / Cronograma Diario</h4>
+                <div class="schedule-list">
+                    
+            <div class="day-item">
+                <span class="day-badge">Monday</span>
+                <span class="day-task">Identify weak domains from previous practice quizzes and review corresponding chapter summaries in the study guide.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Tuesday</span>
+                <span class="day-task">Perform a complete spaced-repetition drill of ALL flashcards (focusing on Leitner Box 3, 4, 5).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Wednesday</span>
+                <span class="day-task">Review and interact with the Mind Maps in `mindmaps.html`. Tracing relationships between systems and protocols.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Thursday</span>
+                <span class="day-task">Take Practice Exam Part 1 (20 Situational Questions) under timed, simulated exam conditions (no notes).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Friday</span>
+                <span class="day-task">Take Practice Exam Part 2 (20 Situational Questions) under timed conditions. Review mistakes critically.</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Saturday</span>
+                <span class="day-task">Final Polish: Memorize acronyms, review the 'Golden Rules' sheet, verify all files in your `comptia_study` folder. Prepare your testing plan (exam day tips).</span>
+            </div>
+            <div class="day-item">
+                <span class="day-badge">Sunday</span>
+                <span class="day-task">Exam Day Readiness: Sleep well, stay calm. You are ready to pass the CompTIA Security+ SY0-701!</span>
+            </div>
+                </div>
+            </div>
+            
+            <div class="glossary-section">
+                <h4>Weekly Key Glossary / Glossario Bilingue</h4>
+                <table class="glossary-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">Term (English)</th>
+                            <th style="width: 25%;">Traducao</th>
+                            <th style="width: 50%;">Definition / Descricao</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            <tr>
+                <td><strong>Acronyms Drill</strong></td>
+                <td>Treino de Siglas</td>
+                <td>CompTIA exams are heavily acronym-based. Ensure you can immediately recall terms like SASE, OCSP, CASB, PAM, ABAC, and BIA.</td>
+            </tr>
+            <tr>
+                <td><strong>Situational Reading</strong></td>
+                <td>Leitura de Cenários</td>
+                <td>Exam questions often present long scenarios. Identify the actual question at the very end of the paragraph before picking an option.</td>
+            </tr>
+            <tr>
+                <td><strong>Most Effective</strong></td>
+                <td>Mais Eficaz</td>
+                <td>When multiple options seem technically correct, select the option that aligns with senior management guidelines, covers root cause, or has the widest protective scope.</td>
+            </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

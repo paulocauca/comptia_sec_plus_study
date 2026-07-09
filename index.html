@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA Security+ SY0-701 - Bilingual Study Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --slate-950: #020617;
+            --slate-900: #0f172a;
+            --slate-800: #1e293b;
+            --slate-400: #94a3b8;
+            --rose-500: #f43f5e;
+            --rose-400: #fb7185;
+            --cyan-400: #22d3ee;
+            --emerald-400: #34d399;
+            --amber-400: #fbbf24;
+            --violet-400: #a78bfa;
+            --border-glow: rgba(244, 63, 94, 0.25);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--slate-950);
+            color: #f8fafc;
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 50% 50%, #0c152e 0%, var(--slate-950) 100%);
+            padding-bottom: 80px;
+        }
+        
+        .header {
+            border-bottom: 1px solid var(--slate-800);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--rose-500), transparent);
+        }
+        
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--rose-400);
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            box-shadow: 0 0 10px var(--rose-500);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(244, 63, 94, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            color: var(--slate-400);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+        }
+        
+        .badge-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background-color: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--slate-800);
+            color: var(--slate-400);
+        }
+        
+        .badge.exam {
+            border-color: var(--rose-500);
+            color: var(--rose-400);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--rose-500);
+            padding-left: 15px;
+        }
+        
+        /* Dashboard Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background-color: var(--slate-900);
+            border: 1px solid var(--slate-800);
+            border-radius: 12px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rose-400);
+            box-shadow: 0 10px 30px rgba(244, 63, 94, 0.15);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--rose-500), var(--violet-400));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .card-header-icon {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .card-desc {
+            color: var(--slate-400);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+        
+        .card-actions {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--rose-500);
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e11d48;
+            box-shadow: 0 0 15px var(--border-glow);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--slate-800);
+            color: var(--slate-400);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--slate-400);
+            color: white;
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Stats / Overview Section */
+        .stats-strip {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--slate-800);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        
+        .stat-item h4 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--rose-400);
+        }
+        
+        .stat-item p {
+            color: var(--slate-400);
+            font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        /* Callout Box */
+        .callout {
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px dashed var(--slate-800);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 50px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .callout-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+        
+        .callout-content h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--cyan-400);
+        }
+        
+        .callout-content p {
+            color: var(--slate-400);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div style="margin-bottom: 15px;"><span class="pulse-dot"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--rose-400); letter-spacing: 0.1em; font-weight: bold; text-transform: uppercase;">Portal do Aluno - Ativo</span></div>
+        <h1>CompTIA Security+ SY0-701</h1>
+        <p class="subtitle">Bilingual Study Suite: Master cybersecurity concepts in English (to pass the official exam) with deep Portuguese support, interactive quizzes, flashcards, and visual mind maps.</p>
+        <div class="badge-container">
+            <span class="badge exam">EXAM: SY0-701</span>
+            <span class="badge">JOE SHELLEY & DARRIL GIBSON</span>
+            <span class="badge">STUDENT: PAULO CAUCA</span>
+            <span class="badge">ROLE: INFOSEC MANAGER</span>
+        </div>
+    </div>
+    
+    <div class="container">
+        
+        <div class="stats-strip">
+            <div class="stat-item">
+                <h4>8 WEEKS</h4>
+                <p>Strict Study Plan</p>
+            </div>
+            <div class="stat-item">
+                <h4>11 CHAPTERS</h4>
+                <p>Comprehensive Summaries</p>
+            </div>
+            <div class="stat-item">
+                <h4>10 SITUATIONAL</h4>
+                <p>Exam Practice Questions</p>
+            </div>
+            <div class="stat-item">
+                <h4>30 CARDS</h4>
+                <p>Spaced-Repetition Deck</p>
+            </div>
+            <div class="stat-item">
+                <h4>5 DOMAINS</h4>
+                <p>SVG Interactive Mindmaps</p>
+            </div>
+        </div>
+
+        <div class="callout">
+            <div class="callout-icon">💡</div>
+            <div class="callout-content">
+                <h4>Estrategia Bilingue Recomendada</h4>
+                <p>Estude todos os termos tecnicos centrais, siglas e handshakes em <strong>Ingles</strong>. A prova oficial da CompTIA no Brasil e amplamente realizada em Ingles devido a inconsistencias de traducao. Utilize os resumos, as Armadilhas de Exame e as <strong>Regras de Ouro em Portugues</strong> para esclarecer duvidas estruturais e acelerar o entendimento das pegadinhas de governanca.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Navegacao do Material de Estudos</h2>
+        <div class="grid">
+            
+            <!-- CARD 1: Study Plan -->
+            <div class="card">
+                <div>
+                    <div class="card-header-icon">📅</div>
+                    <h3 class="card-title">Weekly Study Plan</h3>
+                    <p class="card-desc">Plano de estudos semanal de 8 semanas mapeando tarefas diarias, metas de leitura de capitulos, exercicios de fixacao e glossarios bilingues focados.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="study_plan.html" class="btn btn-primary">Open Interactive HTML</a>
+                    <a href="pdfs/Study_Plan.pdf" class="btn btn-secondary" download>Download PDF</a>
+                </div>
+            </div>
+
+            <!-- CARD 2: Study Guide -->
+            <div class="card">
+                <div>
+                    <div class="card-header-icon">📘</div>
+                    <h3 class="card-title">Comprehensive Study Guide</h3>
+                    <p class="card-desc">Resumos aprofundados dos 11 capitulos do livro. Cada capitulo contem explicacoes tecnicas robustas, tabelas de termos-chave, pegadinhas e Regras de Ouro.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="study_guide.html" class="btn btn-primary">Open Interactive HTML</a>
+                    <a href="pdfs/Study_Guide.pdf" class="btn btn-secondary" download>Download PDF</a>
+                </div>
+            </div>
+
+            <!-- CARD 3: Practice Quizzes -->
+            <div class="card">
+                <div>
+                    <div class="card-header-icon">✏️</div>
+                    <h3 class="card-title">Practice Quiz Bank</h3>
+                    <p class="card-desc">Bateria de questoes situacionais reais no padrao CompTIA em Ingles, acompanhadas de Gabarito Comentado e justificativas robustas de cada alternativa em Portugues.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="quizzes.html" class="btn btn-primary">Take Online Quiz</a>
+                    <a href="pdfs/Quiz_Bank.pdf" class="btn btn-secondary" download>Download PDF</a>
+                </div>
+            </div>
+
+            <!-- CARD 4: Flashcards -->
+            <div class="card">
+                <div>
+                    <div class="card-header-icon">🎴</div>
+                    <h3 class="card-title">Bilingual Flashcards</h3>
+                    <p class="card-desc">Baralho interativo do sistema Leitner com click-to-flip para memorizacao ativa. Perfeito para revisar siglas, fatores de autenticidade, BIA e criptografia.</p>
+                </div>
+                <div class="card-actions">
+                    <a href="flashcards.html" class="btn btn-primary">Practice Cards</a>
+                    <a href="pdfs/Flashcards.pdf" class="btn btn-secondary" download>Download PDF</a>
+                </div>
+            </div>
+
+            <!-- CARD 5: Mind Maps -->
+            <div class="card">
+                <div>
+                    <div class="card-header-icon">🕸️</div>
+                    <h3 class="card-title">Domain Mind Maps</h3>
+                    <p class="card-desc">Mapas mentais de alta fidelidade visual (SVG interativo) mapeando as estruturas dos 5 dominios da prova (Conceitos, Ameacas, Arquitetura, Operacoes, Gestao).</p>
+                </div>
+                <div class="card-actions" style="grid-column: span 2;">
+                    <a href="mindmaps.html" class="btn btn-primary" style="width: 100%;">Open Interactive Visual Mind Maps</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
