@@ -22,3 +22,4 @@
 | Day 18 | 2026-06-27 | Read Chapter 4: IDS vs. IPS (signature vs. anomaly), honeypots, honeyfiles, hone... | Completed |
 | Day 19 | 2026-06-28 | Study wireless security (WPA2/WPA3 Personal vs. Enterprise, 802.1x), VPN topolog... | Completed |
 | Week 1 | 2026-07-09 | BRIEFING: General Security Concepts & Core Basics... | Completed |
+| Day 20 | 2026-07-09 | Weekly Review: Practice Week 3 Quizzes and Flashcards. Draw a secure network top... | Completed |
